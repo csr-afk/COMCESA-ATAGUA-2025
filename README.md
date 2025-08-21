@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMCESA - Componentes de Centroamérica</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        .logo img {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.soy502.com/sites/default/files/styles/full_node/public/2018/Nov/14/4.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            transform: scale(1.1);
+            animation: slowZoom 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1.1); }
+            100% { transform: scale(1.2); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 1000px;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50px;
+            padding: 12px 24px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hero-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .hero-logo img {
+            height: 120px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 20px;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 18px 36px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #f8fafc;
+            padding: 100px 40px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            position: relative;
+        }
+
+        .brands::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.02"><circle cx="30" cy="30" r="2"/></g></svg>');
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #93c5fd;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .brand-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .brand-card:hover::before {
+            left: 100%;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 25px 60px rgba(37, 99, 235, 0.2);
+        }
+
+        .brand-logo {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-card:hover .brand-logo {
+            transform: scale(1.05);
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .brand-description {
+            color: #cbd5e1;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Brand Logo Styles */
+        .qadri-style {
+            font-weight: 900;
+            font-size: 28px;
+            color: #ea580c;
+        }
+
+        .broadbent-style {
+            border: 3px solid #1f2937;
+            border-radius: 40px;
+            padding: 12px 24px;
+            color: #dc2626;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .ewart-style {
+            color: #1e40af;
+            font-weight: 900;
+            font-size: 32px;
+        }
+
+        .fontaine-style {
+            color: #0ea5e9;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .applexion-style {
+            color: #0ea5e9;
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        .allied-style {
+            font-weight: 800;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .martin-style {
+            color: #1e40af;
+            font-weight: 800;
+            font-size: 28px;
+            font-style: italic;
+        }
+
+        .neltec-style {
+            color: #1f2937;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 1.3;
+        }
+
+        .sti-style {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.2;
+        }
+
+        .comcesa-logo-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .comcesa-logo-brand img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Divisions Section */
+        .divisions {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .divisions .section-badge {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #2563eb;
+        }
+
+        .divisions .section-title {
+            color: #1e293b;
+        }
+
+        .divisions .section-description {
+            color: #64748b;
+        }
+
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .division-card {
+            position: relative;
+            height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .division-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .division-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+        }
+
+        .division-card:hover .division-bg {
+            transform: scale(1.1);
+        }
+
+        .division-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(37, 99, 235, 0.8), rgba(124, 58, 237, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: white;
+        }
+
+        .division-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .division-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .division-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 40px;
+            background: #f8fafc;
+        }
+
+        .services .section-badge {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #2563eb;
+        }
+
+        .services .section-title {
+            color: #1e293b;
+        }
+
+        .services .section-description {
+            color: #64748b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #2563eb, #7c3aed);
+            transition: height 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1e293b;
+        }
+
+        .service-description {
+            color: #64748b;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .contact-info {
+            margin-bottom: 20px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-text {
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            color: #64748b;
+        }
+
+        /* Animations */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats,
+            .brands,
+            .divisions,
+            .services,
+            .contact {
+                padding: 80px 20px;
+            }
+
+            .brands-grid,
+            .divisions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .division-card {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.FWDv-1kVSpV5Dz_OMAu4IgHaBo?rs=1&pid=ImgDetMain&o=7&rm=3">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#brands">Marcas</a></li>
+                <li><a href="#divisions">Divisiones</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-award"></i>
+                &nbsp; 21+ años de excelencia industrial
+            </div>
+            <div class="hero-logo">
+                <img src="https://comcesa.net/wp-content/uploads/2022/08/comcesa-logotipo-2022.png">
+            </div>
+            <p class="hero-subtitle"> </p>
+            <p class="hero-description">
+                Líderes en suministro de tecnología, equipos y soluciones industriales de vanguardia para Centroamérica y el Caribe
+            </p>
+            <div class="hero-buttons">
+                <a href="#brands" class="btn-primary">
+                    <i class="fas fa-industry"></i>
+                    Nuestras Marcas
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i class="fas fa-phone"></i>
+                    Contáctanos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card animate-fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number">21+</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-card animate-fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Países de Cobertura</div>
+                </div>
+                <div class="stat-card animate-fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Marcas Representadas</div>
+                </div>
+                <div class="stat-card animate-fade-in">
+                    <div class="stat-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Soporte Técnico</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Nuestras Marcas</div>
+                <h2 class="section-title">Representantes Exclusivos de Marcas Líderes</h2>
+                <p class="section-description">
+                    Respaldamos su éxito industrial con las marcas más prestigiosas y confiables del mercado mundial
+                </p>
+            </div>
+
+            <div class="brands-grid">
+                <!-- COMCESA Brand -->
+                <div class="brand-card" onclick="window.open('https://comcesa.net/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.FWDv-1kVSpV5Dz_OMAu4IgHaBo?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">COMCESA</h3>
+                    <p class="brand-description">Nuestra marca propia, sinónimo de calidad y confianza</p>
+                </div>
+
+                <!-- Qadbros Engineering -->
+                <div class="brand-card" onclick="window.open('https://www.qadrigroup.pk/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQHDFz3_PnA_IQ/company-logo_200_200/0/1519910404222?e=2159024400&v=beta&t=hyubMeGJQo3hAgo10mncFaPPn8tPQUYMBymYaHG-U2g">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Qadbros Engineering</h3>
+                    <p class="brand-description">Líderes mundiales en equipos para la industria azucarera y procesamiento de alimentos</p>
+                </div>
+
+               <!-- Broadbent -->
+                <div class="brand-card" onclick="window.open('https://broadbent.co.uk/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://th.bing.com/th/id/R.1a45182f4d41c2fb00ef1e13901cf015?rik=JNSFDU%2fFSskrsg&riu=http%3a%2f%2fecosolution.com.pl%2fwp-content%2fuploads%2f2017%2f10%2flogo-broadbent.jpg&ehk=as%2f9IGqYqK%2bHZjucTTooUEnWwJg1mJQggy6UwnC6EfE%3d&risl=&pid=ImgRaw&r=0">
+                        </div>
+                    </div>
+                    <h class="brand-name">Broadbent</h3>
+                    <p class="brand-description">Especialistas en centrífugas industriales y equipos de separación de vanguardia</p>
+                </div>
+
+                <!-- Ewart Chain Belts -->
+                <div class="brand-card" onclick="window.open('https://www.ewartagriservices.com/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.20ExTCRg94zVh2anxI3kcQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Ewart Chain Belts</h3>
+                    <p class="brand-description">Cadenas transportadoras de alta resistencia y durabilidad desde 1879</p>
+                </div>
+
+                <!-- Fontaine -->
+                <div class="brand-card" onclick="window.open('https://www.fontaine.de/es/pagina-de-inicio/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.dxNchPenCV59kOf3W4K2qwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h1 class="brand-name">Fontaine</h1>
+                    <p class="brand-description">Tecnología avanzada en sistemas de tamizado y filtración industrial</p>
+                </div>
+
+                <!-- Applexion -->
+                <div class="brand-card" onclick="window.open('https://applexion.com/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.OGFAMxiORjVsfZb9PA_AfAAAAA?w=300&h=106&rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Applexion</h3>
+                    <p class="brand-description">Soluciones innovadoras en purificación y tratamiento de procesos industriales</p>
+                </div>
+
+                <!-- Allied Mineral Products -->
+                <div class="brand-card" onclick="window.open('https://alliedmineral.com/es/', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.3cDvsj_Pp27_LIsZdHGjNAHaDK?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Allied Mineral Products</h3>
+                    <p class="brand-description">Materiales refractarios y soluciones térmicas de alta performance industrial</p>
+                </div>
+
+                <!-- Martin Engineering -->
+                <div class="brand-card" onclick="window.open('https://es.martinsprocket.com/', '_blank')">
+                     <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://w7.pngwing.com/pngs/365/84/png-transparent-martin-sprocket-gear-martin-sprocket-gear-roller-chain-industry-panther-logo-blue-text-trademark.png">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Martin Engineering</h3>
+                    <p class="brand-description">Líderes en soluciones para manejo eficiente de materiales a granel</p>
+                </div>
+
+                <!-- Neltec -->
+                <div class="brand-card" onclick="window.open('https://www.neltec.dk/index.php?lang=es', '_blank')">
+                     <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.S920w-z3pDufQncSfeAaIQHaCN?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Neltec</h3>
+                    <p class="brand-description">Tecnología de vanguardia en clasificación óptica en tiempo real</p>
+                </div>
+
+                <!-- STI -->
+                <div class="brand-card" onclick="window.open('https://www.groupsti.com', '_blank')">
+                    <div class="brand-logo">
+                        <div class="comcesa-logo-brand">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.IBBMGCIAwfmuejaQrCLCMAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3">
+                        </div>
+                    </div>
+                    <h3 class="brand-name">Sugar Technology International</h3>
+                    <p class="brand-description">Tecnología especializada y de última generación para la industria azucarera</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisions Section -->
+    <section class="divisions" id="divisions">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Nuestras Divisiones</div>
+                <h2 class="section-title">Especializados en Tres Sectores Clave</h2>
+                <p class="section-description">
+                    Ofrecemos soluciones integrales especializadas para las industrias más importantes de Guatemala y Centroamérica
+                </p>
+            </div>
+            
+            <div class="divisions-grid">
+                <!-- División Industrial -->
+                <div class="division-card animate-fade-in">
+                    <div class="division-bg" style="background-image: url('https://tse2.mm.bing.net/th/id/OIP.GxdvoBKi1dM2UC1kzXWLvwHaEM?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                    <div class="division-overlay">
+                        <div class="division-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="division-title">División Industrial</h3>
+                        <p class="division-description">
+                            Ingeniería y diseño de procesos, equipos especializados, materiales e insumos para la industria azucarera, aceite de palma, generación de energía, siderurgia y fundición en Guatemala.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- División Agrícola -->
+                <div class="division-card animate-fade-in">
+                    <div class="division-bg" style="background-image: url('https://tse3.mm.bing.net/th/id/OIP.PXZTC5BVYC6EE0iPqN2R0gHaFj?rs=1&pid=ImgDetMain&o=7&rm=3');"></div>
+                    <div class="division-overlay">
+                        <div class="division-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 class="division-title">División Agrícola</h3>
+                        <p class="division-description">
+                            Repuestos, componentes y equipos auxiliares especializados para el sector agrícola guatemalteco, apoyando la productividad y modernización del campo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- División de Riego -->
+                <div class="division-card animate-fade-in">
+                    <div class="division-bg" style="background-image: url('https://grupohidraulica.com/wp-content/uploads/2022/11/sistemas-de-riego-1200x800-1.jpg');"></div>
+                    <div class="division-overlay">
+                        <div class="division-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="division-title">División de Riego</h3>
+                        <p class="division-description">
+                            Sistemas de riego mecanizados de alta eficiencia: pivotes centrales y avances frontales, con repuestos y accesorios de soporte para optimizar la agricultura guatemalteca.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Servicios Complementarios</div>
+                <h2 class="section-title">Servicio Integral de Excelencia</h2>
+                <p class="section-description">
+                    Ofrecemos mucho más que equipos: brindamos soluciones completas con soporte técnico especializado
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Servicio 1 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4 class="service-title">Asesoría Técnica Especializada</h4>
+                    <p class="service-description">
+                        Consultoría experta para selección óptima de equipos y optimización de procesos industriales
+                    </p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="service-title">Soporte Técnico 24/7</h4>
+                    <p class="service-description">
+                        Atención continua con personal altamente capacitado y certificado por nuestras marcas representadas
+                    </p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4 class="service-title">Capacitación en Sitio</h4>
+                    <p class="service-description">
+                        Programas de entrenamiento especializado para operadores y personal de mantenimiento en sus instalaciones
+                    </p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h4 class="service-title">Gestión de Inventarios</h4>
+                    <p class="service-description">
+                        Administración inteligente y suministro programado de repuestos para mantener su operación sin interrupciones
+                    </p>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="service-title">Estudios de Viabilidad</h4>
+                    <p class="service-description">
+                        Análisis técnico-económico y auditorías completas de plantas industriales para optimizar su rendimiento
+                    </p>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="service-card animate-fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h4 class="service-title">Inventario Local Inmediato</h4>
+                    <p class="service-description">
+                        Stock permanente en Guatemala para entrega inmediata de repuestos y componentes críticos
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #a7f3d0;">Contáctenos</div>
+                <h2 class="section-title">Presencia Regional Sólida</h2>
+                <p class="section-description">
+                    Estamos estratégicamente ubicados para brindarle el mejor servicio en 7 países de la región
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Guatemala -->
+                <div class="contact-card animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-title">Guatemala</h3>
+                    <div class="contact-info">
+                        <span class="contact-label">Oficina Principal</span>
+                        <div class="contact-value">
+                            31 Calle 18-08, Bodega 3, Zona 12<br>
+                            Colonia Santa Rosa II<br>
+                            Ciudad de Guatemala
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Teléfono</span>
+                        <div class="contact-value">+502 2317-1717</div>
+                        <span class="contact-label">Correo Electrónico</span>
+			<div class="contact-value">info@comcesa.net</div>
+                    </div>
+                </div>
+
+                <!-- República Dominicana -->
+                <div class="contact-card animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="contact-title">República Dominicana</h3>
+                    <div class="contact-info">
+                        <span class="contact-label">Cobertura Especializada</span>
+                        <div class="contact-value">
+                            Servicios técnicos especializados<br>
+                            para el mercado dominicano<br>
+                            y región del Caribe
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Teléfono</span>
+                        <div class="contact-value">+1 809 884-4777</div>
+                    </div>
+                </div>
+
+                <!-- Cobertura Regional -->
+                <div class="contact-card animate-fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="contact-title">Cobertura Regional Completa</h3>
+                    <div class="contact-info">
+                        <span class="contact-label">Países Atendidos</span>
+                        <div class="contact-value">
+                            ✓ Guatemala<br>
+                            ✓ El Salvador<br>
+                            ✓ Honduras<br>
+                            ✓ Nicaragua<br>
+                            ✓ Costa Rica<br>
+                            ✓ Panamá<br>
+                            ✓ República Dominicana
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">COMCESA</div>
+                <p class="footer-text">
+                    Componentes de Centroamérica, S.A. - Más de 21 años siendo su socio estratégico en soluciones industriales de vanguardia.
+                </p>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 COMCESA - Componentes de Centroamérica, S.A. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animate-fade-in class
+            document.querySelectorAll('.animate-fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Navbar transparency on scroll
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                    navbar.style.backdropFilter = 'blur(20px)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                    navbar.style.backdropFilter = 'blur(20px)';
+                }
+            });
+
+            // Add click handlers for smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
