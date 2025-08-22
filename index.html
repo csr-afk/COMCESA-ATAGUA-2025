@@ -39,11 +39,11 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 80px;
+            height: 70px;
         }
 
         .logo {
@@ -53,7 +53,7 @@
         }
 
         .logo img {
-            height: 75px;
+            height: 45px;
             width: auto;
             object-fit: contain;
         }
@@ -61,7 +61,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 30px;
         }
 
         .nav-links a {
@@ -70,6 +70,7 @@
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
+            font-size: 15px;
         }
 
         .nav-links a:hover {
@@ -91,15 +92,26 @@
             width: 100%;
         }
 
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #374151;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 80px 20px 20px;
         }
 
         .hero::before {
@@ -126,7 +138,7 @@
             text-align: center;
             color: white;
             max-width: 1000px;
-            padding: 0 40px;
+            padding: 0 20px;
             position: relative;
             z-index: 2;
         }
@@ -137,31 +149,31 @@
             background: rgba(37, 99, 235, 0.2);
             border: 1px solid rgba(37, 99, 235, 0.3);
             border-radius: 50px;
-            padding: 12px 24px;
-            margin-bottom: 30px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
             backdrop-filter: blur(10px);
             color: #93c5fd;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
         }
 
         .hero-logo {
             display: flex;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .hero-logo img {
-            height: 120px;
+            height: 80px;
             width: auto;
             object-fit: contain;
             filter: brightness(0) invert(1);
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 6vw, 6rem);
+            font-size: clamp(2.5rem, 8vw, 6rem);
             font-weight: 900;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.1;
             letter-spacing: -2px;
             background: linear-gradient(135deg, #ffffff, #e2e8f0);
@@ -171,24 +183,25 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 20px;
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            margin-bottom: 16px;
             color: #cbd5e1;
             font-weight: 400;
         }
 
         .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 32px;
             color: #94a3b8;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -196,31 +209,33 @@
         .btn-primary {
             background: linear-gradient(135deg, #2563eb, #7c3aed);
             color: white;
-            padding: 18px 36px;
+            padding: 14px 24px;
             border: none;
             border-radius: 12px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
             transition: all 0.3s ease;
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            min-width: 160px;
+            justify-content: center;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 18px 36px;
+            padding: 14px 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 12px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
@@ -228,17 +243,19 @@
             gap: 8px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            min-width: 160px;
+            justify-content: center;
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         /* Stats Section */
         .stats {
             background: #f8fafc;
-            padding: 100px 40px;
+            padding: 80px 20px;
         }
 
         .container {
@@ -248,40 +265,40 @@
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .stat-card {
             text-align: center;
-            padding: 40px 30px;
+            padding: 32px 24px;
             background: white;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             transition: all 0.4s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .stat-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 32px;
+            margin: 0 auto 20px;
+            font-size: 28px;
             color: white;
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 900;
             color: #1e293b;
             margin-bottom: 8px;
@@ -289,14 +306,14 @@
         }
 
         .stat-label {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #64748b;
             font-weight: 500;
         }
 
         /* Brands Section */
         .brands {
-            padding: 120px 40px;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             position: relative;
@@ -314,7 +331,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             position: relative;
         }
 
@@ -323,23 +340,23 @@
             background: rgba(37, 99, 235, 0.1);
             border: 1px solid rgba(37, 99, 235, 0.2);
             color: #93c5fd;
-            padding: 8px 20px;
+            padding: 6px 16px;
             border-radius: 50px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 800;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.2;
             letter-spacing: -1px;
         }
 
         .section-description {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             color: #cbd5e1;
             max-width: 800px;
             margin: 0 auto;
@@ -348,16 +365,16 @@
 
         .brands-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .brand-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 40px 30px;
+            border-radius: 20px;
+            padding: 32px 24px;
             text-align: center;
             transition: all 0.4s ease;
             cursor: pointer;
@@ -381,20 +398,20 @@
         }
 
         .brand-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 25px 60px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
         }
 
         .brand-logo {
-            height: 120px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
+            border-radius: 14px;
             transition: all 0.3s ease;
         }
 
@@ -403,82 +420,16 @@
         }
 
         .brand-name {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: white;
         }
 
         .brand-description {
             color: #cbd5e1;
             line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Brand Logo Styles */
-        .qadri-style {
-            font-weight: 900;
-            font-size: 28px;
-            color: #ea580c;
-        }
-
-        .broadbent-style {
-            border: 3px solid #1f2937;
-            border-radius: 40px;
-            padding: 12px 24px;
-            color: #dc2626;
-            font-weight: 800;
-            font-size: 18px;
-        }
-
-        .ewart-style {
-            color: #1e40af;
-            font-weight: 900;
-            font-size: 32px;
-        }
-
-        .fontaine-style {
-            color: #0ea5e9;
-            font-weight: 700;
-            font-size: 18px;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        .applexion-style {
-            color: #0ea5e9;
-            font-weight: 700;
-            font-size: 26px;
-        }
-
-        .allied-style {
-            font-weight: 800;
-            font-size: 20px;
-            line-height: 1.2;
-        }
-
-        .martin-style {
-            color: #1e40af;
-            font-weight: 800;
-            font-size: 28px;
-            font-style: italic;
-        }
-
-        .neltec-style {
-            color: #1f2937;
-            font-weight: 800;
-            font-size: 24px;
-            line-height: 1.3;
-        }
-
-        .sti-style {
-            background: linear-gradient(135deg, #16a34a, #15803d);
-            color: white;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 1.2;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
         .comcesa-logo-brand {
@@ -489,14 +440,14 @@
         }
 
         .comcesa-logo-brand img {
-            height: 50px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
         /* Divisions Section */
         .divisions {
-            padding: 120px 40px;
+            padding: 80px 20px;
             background: white;
         }
 
@@ -516,23 +467,23 @@
 
         .divisions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
         .division-card {
             position: relative;
-            height: 500px;
-            border-radius: 24px;
+            height: 400px;
+            border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
         .division-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
         }
 
         .division-bg {
@@ -560,38 +511,38 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 40px;
+            padding: 32px;
             color: white;
         }
 
         .division-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 16px;
+            font-size: 22px;
         }
 
         .division-title {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 800;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             line-height: 1.2;
         }
 
         .division-description {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             line-height: 1.6;
             opacity: 0.95;
         }
 
         /* Services Section */
         .services {
-            padding: 120px 40px;
+            padding: 80px 20px;
             background: #f8fafc;
         }
 
@@ -611,14 +562,14 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .service-card {
             background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
+            border-radius: 18px;
+            padding: 32px 24px;
             transition: all 0.4s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
@@ -641,100 +592,100 @@
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
         .service-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background: linear-gradient(135deg, #2563eb, #7c3aed);
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 24px;
-            font-size: 24px;
+            margin-bottom: 20px;
+            font-size: 22px;
             color: white;
         }
 
         .service-title {
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             color: #1e293b;
         }
 
         .service-description {
             color: #64748b;
             line-height: 1.6;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         /* Contact Section */
         .contact {
-            padding: 120px 40px;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
             color: white;
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .contact-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 24px;
-            padding: 40px 30px;
+            border-radius: 20px;
+            padding: 32px 24px;
             text-align: center;
             transition: all 0.4s ease;
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .contact-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 32px;
+            margin: 0 auto 20px;
+            font-size: 28px;
         }
 
         .contact-title {
-            font-size: 1.8rem;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .contact-info {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .contact-label {
             font-weight: 600;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .contact-value {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             line-height: 1.5;
         }
 
@@ -743,7 +694,7 @@
             background: #0f172a;
             color: white;
             text-align: center;
-            padding: 60px 40px 30px;
+            padding: 50px 20px 25px;
         }
 
         .footer-content {
@@ -752,28 +703,23 @@
         }
 
         .footer-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            margin-bottom: 16px;
         }
 
         .footer-text {
             color: #94a3b8;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
+            margin-bottom: 25px;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
+            padding-top: 25px;
             color: #64748b;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
         }
 
         /* Animations */
@@ -791,20 +737,57 @@
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .nav-container {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                display: none;
+                padding: 0 15px;
+                height: 60px;
             }
 
-            .hero-content {
-                padding: 0 20px;
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 70px 15px 30px;
+                min-height: 90vh;
+            }
+
+            .hero-badge {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .hero-logo img {
+                height: 60px;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 12px;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                padding: 16px 24px;
             }
 
             .stats,
@@ -812,16 +795,80 @@
             .divisions,
             .services,
             .contact {
-                padding: 80px 20px;
+                padding: 60px 15px;
             }
 
-            .brands-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .divisions-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
             }
 
             .division-card {
-                height: 400px;
+                height: 350px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 10px 20px;
+            }
+
+            .hero-content {
+                padding: 0 10px;
+            }
+
+            .stats,
+            .brands,
+            .divisions,
+            .services,
+            .contact {
+                padding: 50px 10px;
+            }
+
+            .brand-card,
+            .service-card,
+            .contact-card {
+                padding: 24px 16px;
+            }
+
+            .stat-card {
+                padding: 24px 16px;
+            }
+
+            .division-overlay {
+                padding: 24px;
+            }
+        }
+
+        /* Landscape phones */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                min-height: 100vh;
+                padding: 70px 15px 20px;
             }
         }
     </style>
@@ -831,14 +878,17 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\COMCESA LOGO.png">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.FWDv-1kVSpV5Dz_OMAu4IgHaBo?rs=1&pid=ImgDetMain&o=7&rm=3" alt="COMCESA Logo">
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#brands">Marcas</a></li>
                 <li><a href="#divisions">Divisiones</a></li>
                 <li><a href="#services">Servicios</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
@@ -850,9 +900,9 @@
                 &nbsp; 21+ años de excelencia industrial
             </div>
             <div class="hero-logo">
-                <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\COMCESA LOGO.png">
+                <img src="https://comcesa.net/wp-content/uploads/2022/08/comcesa-logotipo-2022.png" alt="COMCESA">
             </div>
-            <p class="hero-subtitle">Componentes de Centroamérica, S.A.</p>
+            <p class="hero-subtitle"> </p>
             <p class="hero-description">
                 Líderes en suministro de tecnología, equipos y soluciones industriales de vanguardia para Centroamérica y el Caribe
             </p>
@@ -921,7 +971,7 @@
                 <div class="brand-card" onclick="window.open('https://comcesa.net/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\COMCESA LOGO.png">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.FWDv-1kVSpV5Dz_OMAu4IgHaBo?rs=1&pid=ImgDetMain&o=7&rm=3" alt="COMCESA">
                         </div>
                     </div>
                     <h3 class="brand-name">COMCESA</h3>
@@ -932,7 +982,7 @@
                 <div class="brand-card" onclick="window.open('https://www.qadrigroup.pk/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\QG LOGO HI RES.jpg">
+                            <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQHDFz3_PnA_IQ/company-logo_200_200/0/1519910404222?e=2159024400&v=beta&t=hyubMeGJQo3hAgo10mncFaPPn8tPQUYMBymYaHG-U2g" alt="Qadbros Engineering">
                         </div>
                     </div>
                     <h3 class="brand-name">Qadbros Engineering</h3>
@@ -943,10 +993,10 @@
                 <div class="brand-card" onclick="window.open('https://broadbent.co.uk/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\Broadbet.png">
+                            <img src="https://th.bing.com/th/id/R.1a45182f4d41c2fb00ef1e13901cf015?rik=JNSFDU%2fFSskrsg&riu=http%3a%2f%2fecosolution.com.pl%2fwp-content%2fuploads%2f2017%2f10%2flogo-broadbent.jpg&ehk=as%2f9IGqYqK%2bHZjucTTooUEnWwJg1mJQggy6UwnC6EfE%3d&risl=&pid=ImgRaw&r=0" alt="Broadbent">
                         </div>
                     </div>
-                    <h class="brand-name">Broadbent</h3>
+                    <h3 class="brand-name">Broadbent</h3>
                     <p class="brand-description">Especialistas en centrífugas industriales y equipos de separación de vanguardia</p>
                 </div>
 
@@ -954,7 +1004,7 @@
                 <div class="brand-card" onclick="window.open('https://www.ewartagriservices.com/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\Ewart Logotipi _ Fondo Blanco.jpg">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.20ExTCRg94zVh2anxI3kcQHaDt?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ewart Chain Belts">
                         </div>
                     </div>
                     <h3 class="brand-name">Ewart Chain Belts</h3>
@@ -965,7 +1015,7 @@
                 <div class="brand-card" onclick="window.open('https://www.fontaine.de/es/pagina-de-inicio/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\Fontaine_12_09_ST.jpg">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.dxNchPenCV59kOf3W4K2qwAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Fontaine">
                         </div>
                     </div>
                     <h3 class="brand-name">Fontaine</h3>
@@ -976,7 +1026,7 @@
                 <div class="brand-card" onclick="window.open('https://applexion.com/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\Logo Applexion Corporate JPG.jpg">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.OGFAMxiORjVsfZb9PA_AfAAAAA?w=300&h=106&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Applexion">
                         </div>
                     </div>
                     <h3 class="brand-name">Applexion</h3>
@@ -987,7 +1037,7 @@
                 <div class="brand-card" onclick="window.open('https://alliedmineral.com/es/', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\AMP- 3 tier logo with color lettering - Copy.jpg">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.3cDvsj_Pp27_LIsZdHGjNAHaDK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Allied Mineral Products">
                         </div>
                     </div>
                     <h3 class="brand-name">Allied Mineral Products</h3>
@@ -998,7 +1048,7 @@
                 <div class="brand-card" onclick="window.open('https://es.martinsprocket.com/', '_blank')">
                      <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\Martin _ Fondo blanco.png">
+                            <img src="https://w7.pngwing.com/pngs/365/84/png-transparent-martin-sprocket-gear-martin-sprocket-gear-roller-chain-industry-panther-logo-blue-text-trademark.png" alt="Martin Engineering">
                         </div>
                     </div>
                     <h3 class="brand-name">Martin Engineering</h3>
@@ -1009,7 +1059,7 @@
                 <div class="brand-card" onclick="window.open('https://www.neltec.dk/index.php?lang=es', '_blank')">
                      <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\neltec_logo_CMYK.jpg">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.S920w-z3pDufQncSfeAaIQHaCN?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Neltec">
                         </div>
                     </div>
                     <h3 class="brand-name">Neltec</h3>
@@ -1020,7 +1070,7 @@
                 <div class="brand-card" onclick="window.open('https://www.groupsti.com', '_blank')">
                     <div class="brand-logo">
                         <div class="comcesa-logo-brand">
-                            <img src="C:\Users\Comcesa\OneDrive - Componentes de Centro América S. A\Escritorio\STI LOGO 2.jpg">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.IBBMGCIAwfmuejaQrCLCMAAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="STI">
                         </div>
                     </div>
                     <h3 class="brand-name">Sugar Technology International</h3>
@@ -1198,7 +1248,7 @@
                         <span class="contact-label">Teléfono</span>
                         <div class="contact-value">+502 2317-1717</div>
                         <span class="contact-label">Correo Electrónico</span>
-			<div class="contact-value">info@comcesa.net</div>
+                        <div class="contact-value">info@comcesa.net</div>
                     </div>
                 </div>
 
@@ -1261,8 +1311,39 @@
     </footer>
 
     <script>
-        // Smooth scrolling and animations
+        // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            const toggleIcon = mobileMenuToggle.querySelector('i');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                // Change hamburger to X and vice versa
+                if (navLinks.classList.contains('active')) {
+                    toggleIcon.className = 'fas fa-times';
+                } else {
+                    toggleIcon.className = 'fas fa-bars';
+                }
+            });
+
+            // Close mobile menu when clicking on a link
+            navLinks.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    navLinks.classList.remove('active');
+                    toggleIcon.className = 'fas fa-bars';
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    toggleIcon.className = 'fas fa-bars';
+                }
+            });
+
             // Intersection Observer for fade-in animations
             const observerOptions = {
                 threshold: 0.1,
@@ -1300,11 +1381,20 @@
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                        const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // Prevent brand card clicks from interfering with mobile menu
+            document.querySelectorAll('.brand-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // The onclick attribute will handle the navigation
                 });
             });
         });
